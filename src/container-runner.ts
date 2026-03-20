@@ -59,6 +59,8 @@ const TOOL_SECRET_KEYS = [
   'EXTRACTION_API_KEY',
   'EXTRACTION_MODEL',
   'EXTRACTION_BASE_URL',
+  // Git credentials for private repos
+  'GITHUB_TOKEN',
 ];
 const toolSecrets = readEnvFile(TOOL_SECRET_KEYS);
 
@@ -223,7 +225,7 @@ function buildVolumeMounts(
     group.folder,
     'agent-runner-src',
   );
-  if (!fs.existsSync(groupAgentRunnerDir) && fs.existsSync(agentRunnerSrc)) {
+  if (fs.existsSync(agentRunnerSrc)) {
     fs.cpSync(agentRunnerSrc, groupAgentRunnerDir, { recursive: true });
   }
   mounts.push({
