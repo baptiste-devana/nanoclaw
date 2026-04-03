@@ -453,10 +453,7 @@ async function runQuery(
         'suite-366': {
           type: 'http' as const,
           url: 'https://app.suite366.ai/api/mcp/server',
-          headers: {
-            Authorization: 'Bearer sk_live_aTT90fN2UHm1KxznOl_DMOjWzkpl7_Y8aLh9FzF0vUE',
-          },
-        },
+          headers: {},
       },
       hooks: {
         PreCompact: [{ hooks: [createPreCompactHook(containerInput.assistantName)] }],
